@@ -52,12 +52,13 @@ Figures are saved automatically to figures/ as PNG/JPG files.
 
 
 5. Regenerating paper artefacts
-| Artefact (paper section) | How to reproduce |
+
+ | Artefact (paper section) | How to reproduce |
 |--------------------------|------------------|
 | **Fig. 2 – Architecture** | Static SVG (`assets/architecture.svg`) – committed. |
 | **Fig. 4/5 – Cluster Evolution** | Run notebook; outputs `figures/cluster_iter_1.png`, `cluster_iter_5.png`. |
-| **Table V – Cluster states** | Automatically printed to console and stored as `outputs/cluster_stats.csv`. |
-| **Equation (3) & (10)** | Implemented in `calculate_trust_score()` inside notebook (no extra steps). |   
+| **Table V – Cluster stats** | Automatically printed to console and stored as `outputs/cluster_stats.csv`. |
+| **Equation (3) & (10)** | Implemented in `calculate_trust_score()` inside notebook (no extra steps). |
 
 6. Unit tests (if Required)
 pytest tests/
