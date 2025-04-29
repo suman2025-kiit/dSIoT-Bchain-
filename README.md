@@ -75,3 +75,7 @@ net.run_simulation(steps=5)
 print("Average trust:", net.get_average_trust())
 PY
 
+# Sample Simulation output for 5 different Interactions of  'dSIoT-Bchain'  -
+
+
+![1](https://github.com/user-attachments/assets/4f5e3e10-a0d3-4dd9-8c36-6ca40c6dc18f)
