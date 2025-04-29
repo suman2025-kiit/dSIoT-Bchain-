@@ -79,3 +79,13 @@ PY
 
 
 ![1](https://github.com/user-attachments/assets/4f5e3e10-a0d3-4dd9-8c36-6ca40c6dc18f)
+
+![2](https://github.com/user-attachments/assets/b4502df0-b82e-4743-9181-c3f23d9e3bbc)
+![3](https://github.com/user-attachments/assets/ca7b1ac8-6560-450a-861f-43b31e809201)
+![4](https://github.com/user-attachments/assets/46af1752-b740-4f46-b043-9cfb49382225)
+![5](https://github.com/user-attachments/assets/641dc8ba-ca14-45c5-9ba1-361b44ff62ea)
+
+# Sample Simulation output for 1st  Interactions at background of  'dSIoT-Bchain'  -
+
+
+![1s](https://github.com/user-attachments/assets/db96c171-f2bf-4ec5-826a-31997ebbe5ba)
