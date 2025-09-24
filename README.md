@@ -1,4 +1,4 @@
-# dSIoT-Bchain-
+# Validation and running guide of "dSIoT-Bchain" -
 Distributed Social Behaviour for SIoT using Blockchain network 
 
 #**To excute the application please consider the following steps-**
