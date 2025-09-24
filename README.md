@@ -89,3 +89,58 @@ PY
 
 
 ![1s](https://github.com/user-attachments/assets/db96c171-f2bf-4ec5-826a-31997ebbe5ba)
+
+Here you go—clear run + validate steps for **sensor\_validation.py**.
+
+### 1) Setup
+
+```bash
+python -V                 # any 3.9+
+pip install numpy
+```
+
+### 2) Run the built-in demo
+
+```bash
+python sensor_validation.py
+```
+
+You should see three `ValidationResult` lines (DHT22, MQ-135, PIR) plus their Reliability/ISR numbers.
+
+### 3) Use in your pipeline
+
+```python
+from sensor_validation import (
+    validate_dht22, validate_mq135, validate_pir,
+    make_reliability_from_validation, make_isr_from_validation)
+
+vr_dht = validate_dht22("dht_12", [25.1, 25.4, None, 26.0, 80.5], [56.0, 55.4, 55.2, None, 54.9])
+R_dht  = make_reliability_from_validation(vr_dht)
+ISR_dht= make_isr_from_validation(vr_dht)
+```
+
+### 4) Quick validation checks (synthetic)
+
+* **Gaps handled:** `None` values increase `gap_ratio` and lower scores.
+* **RoC guard:** Large jumps are clipped (e.g., DHT22 >1 °C/sample).
+* **Outliers removed:** IQR mask lowers `outlier_ratio` toward 0 on clean data.
+* **Drift (MQ-135):**
+
+```python
+from sensor_validation import validate_mq135
+x = [400]*60 + [700]*60         # clear shift
+vr = validate_mq135("mq", x, drift_win=50, drift_thresh=0.15)
+print(vr.drift_flag)  # True
+```
+
+* **PIR debouncing:** Short bursts are merged; improbable high rates reduce score if `max_event_rate_hz` is set.
+
+### 5) Expected ranges
+
+* `validation_score` ∈ \[0,1]; higher is better.
+* `gap_ratio` ∈ \[0,1]; lower is better.
+* `ok_rate` tracks fraction of kept samples.
+* MQ-135 drift: `rel_shift ≥ drift_thresh` ⇒ `drift_flag=True` and soft score penalty.
+
+**File:** [sensor\_validation.py](sandbox:/mnt/data/sensor_validation.py)
+
